@@ -1,0 +1,11 @@
+*.o
+books/books
+chess/chess_pieces
+chess_move/chess_moves
+complex_numbers/complex_numbers
+graph/graph_main
+integral/integral
+queens/reinas
+shape/shapes
+tasks/tasks
+

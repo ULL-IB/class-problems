@@ -21,9 +21,8 @@ int main(int argc, char* argv[]) {
     return 1;
   }
   srand(time(0));  // Inicialización de la semilla aleatoria
-  // size_t es un alias de unsigned long que usa std::vector
-  size_t numero_de_piezas{static_cast<size_t>(atoi(argv[1]))};
-  ChessVector piezas{numero_de_piezas};
+  std::vector<ChessPiece> piezas(static_cast<size_t>(atoi(argv[1])));
+  // Las piezas se habrán generado usando su constructor por defecto
   while (CheckOverlap(piezas)) {
     std::cout << piezas << "Several pieces are in the same position. "
               << "We are going to relocate them:\n";
@@ -34,3 +33,4 @@ int main(int argc, char* argv[]) {
   std::cout << piezas << "All the pieces are in different positions.\n";
   return 0;
 }
+

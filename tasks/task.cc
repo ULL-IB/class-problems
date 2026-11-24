@@ -41,7 +41,7 @@ Task::Task(const std::string& name, int duration) :
  * @return Referencia al flujo de salida
  */
 std::ostream& operator<<(std::ostream& out, const Task& task) {
-  return out << task.name_ << " (" << task.duration_ << 'h)';
+  return out << task.name_ << " (" << task.duration_ << "h)";
 }
 
 /** Función que lee tareas desde el flujo de entrada y las instancia */

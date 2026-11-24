@@ -16,9 +16,8 @@
 
 /** Constructor por defecto de la clase ChessPiece
  * Genera aleatoriamente el color, el tipo y la posición de la pieza */
-ChessPiece::ChessPiece() :
-    type_{static_cast<ChessType>(rand() % ChessType::KTotal)},
-    is_white_{rand() % 2 == 0}, row_{0}, column_{0} {
+ChessPiece::ChessPiece() : is_white_{rand() % 2 == 0},
+    type_{static_cast<ChessType>(rand() % ChessType::KTotal)} {
   RandomPosition();
 }
 
@@ -34,8 +33,8 @@ void ChessPiece::RandomPosition() {
  * @param piece Segundo operando
  * @return Verdadero si ambas piezas están en la misma posición
  */
-bool ChessPiece::operator==(const ChessPiece& piece) const {
-  return row_ == piece.row_ && column_ == piece.column_;
+bool operator==(const ChessPiece& first, const ChessPiece& second) {
+  return first.row_ == second.row_ && first.column_ == second.column_;
 }
 
 /** Conversor del tipo de pieza a cadena de caracteres
@@ -78,7 +77,7 @@ std::ostream& operator<<(std::ostream& out, const ChessPiece& piece) {
  * @param pieces Vector de ChessPiece
  * @return Verdadero si dos o más piezas están en igual posición
  */
-bool CheckOverlap(const ChessVector& pieces) {
+bool CheckOverlap(const std::vector<ChessPiece>& pieces) {
   // Se evalúan todas las posibles parejas de piezas.
   // size_t es un alias de unsigned long que usa std::vector
   for (size_t i{1}; i < pieces.size(); ++i) {
@@ -96,9 +95,11 @@ bool CheckOverlap(const ChessVector& pieces) {
  * @param pieces Vector de piezas de ajedrez a mostrar
  * @return Referencia al flujo de salida
  */
-std::ostream& operator<<(std::ostream& out, const ChessVector& pieces) {
+std::ostream& operator<<(std::ostream& out,
+                         const std::vector<ChessPiece>& pieces) {
   for (const auto& piece: pieces) {
     out << piece << std::endl;
   }
   return out;
 }
+
