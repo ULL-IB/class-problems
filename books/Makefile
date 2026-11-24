@@ -3,10 +3,10 @@ MAIN = $(CLASS)s
 
 all: $(MAIN)
 
-$(MAIN): $(MAIN).cc $(CLASS).cc
+$(MAIN): $(MAIN).o $(CLASS).o
 	g++ -o $@ $^
 
 .PHONY: all clean
 
 clean:
-	rm -f *.o $(EXEC)
+	rm -f *.o $(MAIN)

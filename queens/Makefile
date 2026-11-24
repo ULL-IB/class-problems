@@ -1,12 +1,12 @@
-CLASS = corona.cc reina.cc
+CLASS = corona.o reina.o
 MAIN = reinas
 
 all: $(MAIN)
 
-$(MAIN): $(MAIN).cc $(CLASS)
+$(MAIN): $(MAIN).o $(CLASS)
 	g++ -o $@ $^
 
 .PHONY: all clean
 
 clean:
-	rm -f *.o $(EXEC)
+	rm -f *.o $(MAIN)
