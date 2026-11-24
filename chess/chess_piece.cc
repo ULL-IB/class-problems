@@ -50,6 +50,8 @@ std::string ChessPiece::type() const {
       return "rook";
     case ChessType::kKnight:
       return "knight";
+    case ChessType::kBishop:
+      return "bishop";
     case ChessType::kQueen:
       return "queen";
     case ChessType::kKing:

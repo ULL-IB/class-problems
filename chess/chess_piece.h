@@ -36,7 +36,6 @@ class ChessPiece {
 };
 
 bool CheckOverlap(const std::vector<ChessPiece>& pieces);
-bool operator==(const ChessPiece& first, const ChessPiece& second);
 // Nada nos impide sobrecargar el operador << para clases compuestas:
 std::ostream& operator<<(std::ostream& out, const std::vector<ChessPiece>&);
 

@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     return 1;
   }
   srand(time(0));  // Inicialización de la semilla aleatoria
-  std::vector<ChessPiece> piezas(static_cast<size_t>(atoi(argv[1])));
+  std::vector<ChessPiece> piezas(atoi(argv[1]));
   // Las piezas se habrán generado usando su constructor por defecto
   while (CheckOverlap(piezas)) {
     std::cout << piezas << "Several pieces are in the same position. "
